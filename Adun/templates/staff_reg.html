@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Staff_reg - Adun Health Care{% endblock %}
+
+{% block content %}
+    <!-- Add the specific content for the about page here -->
+  
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="card mybg">
+            <div class="card-body ">
+                <form method="post">
+                    {% csrf_token %}
+                    <h5 class="mb-4 text-center">Please fill in the form below:</h5>
+                            
+                    <!-- Personal Information -->
+                    <div class="personalinfo mb-4">
+                        <h3 class="h3">Personal Information</h3>
+                                
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="firstName"><b>First Name</b></label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="first_name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName"><b>Last Name</b></label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="last_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="username"><b>Password</b></label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="username"><b>Password</b></label>
+                                <input type="password" class="form-control" id="password" name="comfirm_password" placeholder="Comfirm password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="dateOfBirth"><b>Date of Birth</b></label>
+                                <input type="date" class="form-control" id="dateOfBirth" name="date_of_birth" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email"><b>Email</b></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phoneNumber"><b>Phone Number</b></label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="123-456-7890" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender"><b>Gender</b></label>
+                                <select  type="text" class="form-control" id="gender" name="gender" required>
+                                    <option value="Gender">Gender</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="admissionNumber"><b>ID Number</b></label>
+                                <input type="text" class="form-control" id="admissionNumber" name="admission_number" placeholder="Enter your ID number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="maritalStatus"><b>Marital Status</b></label>
+                                <select  type="text" class="form-control" id="maritalStatus" name="maritalstat" required>
+                                    <option value="Select">Select</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorce">Divorced</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <!-- Other Information -->
+                    <div class="instinfo mb-4">
+                        <h3>Other Information</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="qualification"><b>Qualification</b></label>
+                                <select type="text" class="form-select" id="qualification" name="qualification" required>
+                                    <option value="">Choose your specialty</option>
+                                    <option value="Select">Select</option>
+                                    <option value="Doctor">Doctor</option>
+                                    <option value="Nurse">Nurse</option>
+                                    <option value="Pharmacist">Pharmacist</option>
+                                    <option value="Consultant">Consultant</option>
+                                    <option value="Laboratory">Laboratory Scientist</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="services"><b>Services Rendered</b></label>
+                                <input type="text" class="form-control" id="services" name="Services_Rendered" required>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <!-- Medical History -->
+                    <div class="med mb-4">
+                        <h3>Medical History</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="weight"><b>Weight (kg)</b></label>
+                                <input type="number" class="form-control" id="weight" name="weight" placeholder="Enter your weight" step="0.01" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="height"><b>Height (cm)</b></label>
+                                <input type="number" class="form-control" id="height" name="height" placeholder="Enter your height" step="0.01" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="allergies"><b>Allergies</b></label>
+                                <textarea  type="text" class="form-control" id="allergies" name="allergies" placeholder="List any allergies you have" required></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="medicalCondition"><b>Medical Condition</b></label>
+                                <textarea  type="text" class="form-control" id="medicalCondition" name="medical_condition" placeholder="Describe your medical condition" required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="takingMedications"><b>Are you taking any medications?</b></label>
+                                <div>
+                                    <input type="radio" id="takingMedicationsYes" name="taking_medications" value="1" required>
+                                    <label for="takingMedicationsYes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="takingMedicationsNo" name="taking_medications" value="0" required>
+                                    <label for="takingMedicationsNo">No</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <label for="medications"><b>Medications</b></label>
+                                <textarea  type="text" class="form-control" id="medications" name="medications" placeholder="List any medications you are taking"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="text-center mt-4">
+                        <button class="btn btn-success py-2 px-4" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+{% endblock %}
